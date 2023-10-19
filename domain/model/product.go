@@ -4,6 +4,11 @@ import(
     "github.com/asaskevich/govalidator"
 )
 
+type ProductRepositoryInterface interface{
+    CreateProduct(product *Product) (*Product, error)
+    FetchProducts() ([]*Product, error)
+}
+
 type Product struct{
 	ID uint `json:"id" gorm:"primaryKey;autoIncrement:true" valid:"notnull"`
     Name string `json:"name" gorm:"type:varchar(20)" valid:"notnull"`
