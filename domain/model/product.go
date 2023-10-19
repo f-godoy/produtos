@@ -6,7 +6,7 @@ import(
 
 type ProductRepositoryInterface interface{
     CreateProduct(product *Product) (*Product, error)
-    FetchProducts() ([]*Product, error)
+    FetchProducts() (*[]Product, error)
 }
 
 type Product struct{
