@@ -8,7 +8,7 @@ type ProductUseCase struct{
 	ProductRepository model.ProductRepositoryInterface
 }
 
-func (p *ProductUseCase) SaveOneProduct(name string, description string, price float64) (*model.Product, error){
+func (p *ProductUseCase) SaveOneProduct(name string, description string, price float32) (*model.Product, error){
 	newProduct, err := model.NewProduct(name,description,price)
 	
 	if err != nil{

@@ -10,13 +10,13 @@ type ProductRepositoryInterface interface{
 }
 
 type Product struct{
-	ID uint `json:"id" gorm:"primaryKey;autoIncrement:true" valid:"notnull"`
+	Id int32 `json:"id" gorm:"primaryKey;autoIncrement:true" valid:"notnull"`
     Name string `json:"name" gorm:"type:varchar(20)" valid:"notnull"`
     Description string `json:"description" gorm:"type:varchar(255)" valid:"notnull"`
-    Price float64	`json:"price" gorm:"type:float" valid:"notnull"`
+    Price float32	`json:"price" gorm:"type:float" valid:"notnull"`
 }
 
-func NewProduct(name string, description string, price float64) (*Product, error){
+func NewProduct(name string, description string, price float32) (*Product, error){
 	product := Product{
         Name: name,
         Description: description,

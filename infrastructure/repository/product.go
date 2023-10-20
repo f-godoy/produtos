@@ -9,7 +9,7 @@ type ProductRepositoryDb struct{
 	Db *gorm.DB
 }
 
-func (r *ProductRepositoryDb) CreateProduct(product *model.Product) (*model.Product, error){
+func (r ProductRepositoryDb) CreateProduct(product *model.Product) (*model.Product, error){
 	err := r.Db.Create(product).Error
 
 	if err != nil{
@@ -18,8 +18,8 @@ func (r *ProductRepositoryDb) CreateProduct(product *model.Product) (*model.Prod
 	return product, nil
 }
 
-func (r *ProductRepositoryDb) FetchProducts() (*[]model.Product, error){
-	var products *[]model.Product
+func (r ProductRepositoryDb) FetchProducts() (*[]model.Product, error){
+	var products []model.Product
 	err := r.Db.Find(&products).Error
 
 	if err !=nil {
